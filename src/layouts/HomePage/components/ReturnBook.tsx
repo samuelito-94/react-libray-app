@@ -1,15 +1,21 @@
 import React from "react";
+import { BookModel } from "../../../models/BookModel";
 
-export const ReturnBook = () => {
+interface Props {
+    book: BookModel
+}
+
+export const ReturnBook: React.FC<Props> = ({book}) => {
     return (
         <div className='col-xs-6 col-sm-6 col-md-4 col-lg-3 mb-3'>
             <div className='text-center'>
-                <img src={require('../../../Images/BooksImages/book-luv2code-1000.png')}
-                    width='151'
-                    height='233'
-                    alt="book" />
-                <h6 className='mt-2'>Book</h6>
-                <p>Luv2code</p>
+                   <img src={book.img ?? require('../../../Images/BooksImages/book-luv2code-1000.png')}
+                        width='151'
+                        height='233'
+                        alt="book" />
+                
+                <h6 className='mt-2'>{book.title}</h6>
+                <p>{book.author}</p>
                 <a href="#" className='btn main-color text-white'>
                     Reserve
                 </a>
