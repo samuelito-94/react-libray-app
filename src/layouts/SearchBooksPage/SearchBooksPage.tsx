@@ -70,7 +70,8 @@ export const SearchBooksPage = () => {
         )
     }
 
-    const searchHandleChange = () => {
+    const searchHandleChange = (e: any) => {
+        e.preventDefault();
         setCurrentPage(1);
         if (search === '') {
             setSearchUrl('');
@@ -107,15 +108,15 @@ export const SearchBooksPage = () => {
                 <div>
                     <div className="row mt-5">
                         <div className="col-6">
-                            <div className="d-flex">
+                            <form className="d-flex" onSubmit={searchHandleChange}>
                                 <input className="form-control me-2" type="search"
                                     placeholder="Search" aria-label="Search"
                                     onChange={e => setSearch(e.target.value)} />
                                 <button className="btn btn-outline-success"
-                                    onClick={() => searchHandleChange()}>
+                                type="submit">
                                     Search
                                 </button>
-                            </div>
+                            </form>
                         </div>
                         <div className="col-4">
                             <div className="dropdown">
