@@ -3,6 +3,7 @@ import { BookModel } from "../../models/BookModel";
 import { useParams } from "react-router-dom";
 import { SpinnerLoading } from "../Utils/SpinnerLoading";
 import { StarReview } from "../Utils/StarReview";
+import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
 
 export const BookCheckoutPage = () => {
 
@@ -72,10 +73,11 @@ export const BookCheckoutPage = () => {
                             <StarReview rating={3.5} size={32} />
                         </div>
                     </div>
+                    <CheckoutAndReviewBox book={book} mobile={false} />
                 </div>
                 <hr />
             </div>
-            
+
             <div className="container d-lg-none mt-5">
                 <div className="d-flex justify-content-center align-items-center">
                     {book?.img ?
@@ -92,6 +94,7 @@ export const BookCheckoutPage = () => {
                         <StarReview rating={1.5} size={32} />
                     </div>
                 </div>
+                <CheckoutAndReviewBox book={book} mobile={true} />
                 <hr />
             </div>
         </div>
