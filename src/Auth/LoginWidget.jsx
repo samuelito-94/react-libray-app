@@ -1,8 +1,9 @@
 import { Redirect } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import { SpinnerLoading } from "../layouts/Utils/SpinnerLoading";
+import { OktaSignInWidget } from "./OktaSignInWidget";
 
-export const LoginWidget = ({config}) => {
+export const LoginWidget = ({ config }) => {
     const { oktaAuth, authState } = useOktaAuth();
     const onSuccess = (tokens) => {
         oktaAuth.handleLoginRedirect(tokens);
@@ -15,8 +16,9 @@ export const LoginWidget = ({config}) => {
         return <SpinnerLoading />
     }
 
-    return authState.isAuthenticated ?
-        <Redirect to={{ pathname: '/'}} />
+    return authState.isAuthenticated
+        ?
+        <Redirect to={{ pathname: '/' }} />
         :
-        <div></div>
+        <OktaSignInWidget config={config} onSuccess={onSuccess} onError={onError} />
 }
