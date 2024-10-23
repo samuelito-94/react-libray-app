@@ -43,7 +43,6 @@ export const Navbar = () => {
                                 <Link type='button' to='/login' className='btn btn-outline-light'>Sign in</Link>
                             </li>
                         }
-
                     </ul>
                 </div>
             </div>
